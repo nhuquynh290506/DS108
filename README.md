@@ -27,7 +27,7 @@ Tuy nhiên, hiện nay các mô hình học máy hoàn toàn bất lực trướ
   279632605
   123456789
 
--Bước 3: Lấy và cập nhật Cookie
+- Bước 3: Lấy và cập nhật Cookie
   Lazada chống crawl dữ liệu rất mạnh, thế nên phải thay đổi cookies để có       chương trình tiếp tục chạy. Cookie trong code hiện tại chắc chắn đã hết hạn.     Bạn lấy cái mới bằng cách:
    Mở trình duyệt (Chrome/Edge)
    
