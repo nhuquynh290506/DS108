@@ -16,33 +16,48 @@ Tuy nhiên, hiện nay các mô hình học máy hoàn toàn bất lực trướ
 5. Lưu trữ: Lưu dữ liệu ngay lập tức vào file lazada_reviews.json sau khi hoàn thành mỗi một sản phẩm.
 6. Nhận diện bị chặn: Nếu hệ thống Lazada phát hiện bot và trả về mã HTML (bắt đăng nhập hoặc xác minh) thay vì dữ liệu JSON, code sẽ báo lỗi "BỊ CHẶN" và dừng lại an toàn để bạn thay Cookie mới.
 ### ===== Hướng dẫn sử dụng =====
-Bước 1: Cài đặt thư viện cần thiết
-Script này sử dụng một số thư viện ngoài.Mở Terminal hoặc Command Prompt và chạy lệnh sau để cài đặt:
-pip install requests pandas
-Bước 2: Chuẩn bị file đầu vào
-Tạo một file tên là pages-new.csv để cùng thư mục với file reviews.py. File CSV này bắt buộc phải có một cột tên là product_id chứa các mã số sản phẩm của Lazada.
-Ví dụ nội dung file CSV:
-product_id
-279632605
-123456789
-Bước 3: Lấy và cập nhật Cookie
-Lazada chống crawl dữ liệu rất mạnh, thế nên phải thay đổi cookies để có chương trình tiếp tục chạy. Cookie trong code hiện tại chắc chắn đã hết hạn. Bạn lấy cái mới bằng cách:
-- Mở trình duyệt (Chrome/Edge)
-- Vào trang của một sản phẩm bất kỳ, cuộn xuống phần đánh giá.
-- Nhấn phím F12 để mở Developer Tools, chuyển sang tab Network.
-- Bấm sang các trang đánh giá tiếp theo (trang 2, 3...) trên giao diện trang web.
-- Tìm trong tab Network một request có tên bắt đầu bằng getReviewList.... Bấm vào đó.
-- Cuộn xuống phần Request Headers, tìm dòng Cookie:.
-- Copy toàn bộ đoạn text dài dằng dặc đằng sau chữ Cookie: và dán đè vào biến COOKIES trong file code của bạn.
-Bước 4: Chạy script
-Mở Terminal, di chuyển đến thư mục chứa file và gõ lệnh:
-python reviews.py
+- Bước 1: Cài đặt thư viện cần thiết
+  Script này sử dụng một số thư viện ngoài.Mở Terminal hoặc Command Prompt và     chạy lệnh sau để cài đặt:
+  pip install requests pandas
+
+- Bước 2: Chuẩn bị file đầu vào
+  Tạo một file tên là pages-new.csv để cùng thư mục với file reviews.py. File     CSV này bắt buộc phải có một cột tên là product_id chứa các mã số sản phẩm      của Lazada.
+  Ví dụ nội dung file CSV:
+  product_id
+  279632605
+  123456789
+
+-Bước 3: Lấy và cập nhật Cookie
+  Lazada chống crawl dữ liệu rất mạnh, thế nên phải thay đổi cookies để có       chương trình tiếp tục chạy. Cookie trong code hiện tại chắc chắn đã hết hạn.     Bạn lấy cái mới bằng cách:
+   Mở trình duyệt (Chrome/Edge)
+   
+  Vào trang của một sản phẩm bất kỳ, cuộn xuống phần đánh giá.
+
+  Nhấn phím F12 để mở Developer Tools, chuyển sang tab Network.
+  
+  Bấm sang các trang đánh giá tiếp theo (trang 2, 3...) trên giao diện trang      web.
+  
+  Tìm trong tab Network một request có tên bắt đầu bằng getReviewList.... Bấm     vào đó.
+  
+  Cuộn xuống phần Request Headers, tìm dòng Cookie:.
+  
+  Copy toàn bộ đoạn text dài dằng dặc đằng sau chữ Cookie: và dán đè vào biến     COOKIES trong file code của bạn.
+
+- Bước 4: Chạy script
+  Mở Terminal, di chuyển đến thư mục chứa file và gõ lệnh:
+  python reviews.py
+
 ## Tiền xử lí dữ liệu
 - Bước 1:Thiết lập môi trường
+
 - Bước 2: Chuẩn bị dữ liệu
+
 - Bước 3: Chạy các quy trình được tích hợp trong file DS108_ĐA_(1) (3).ipynb
   Data ingestion: Load dữ liệu thô ban đầu
+
   Preprocessing: Chạy các cell code là sạch văn bản, xử lí dữ liệu mất và chuẩn hóa đặt trưng
   Merging: Chạy cell merge để gán nhãn review_score cho bảng sản phẩm
+  
   Benchmarking: Chạy mô hình Random Forest để tạo bảng kết quả
+  
 - Bước 4: Kiểm tra các file dữ liệu đầu ra và kết quả F1-score
