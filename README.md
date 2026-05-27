@@ -22,6 +22,7 @@ Tuy nhiên, hiện nay các mô hình học máy hoàn toàn bất lực trướ
 
 - Bước 2: Chuẩn bị file đầu vào
   Tạo một file tên là pages-new.csv để cùng thư mục với file reviews.py. File     CSV này bắt buộc phải có một cột tên là product_id chứa các mã số sản phẩm      của Lazada.
+  
   Ví dụ nội dung file CSV:
   product_id
   279632605
@@ -29,6 +30,7 @@ Tuy nhiên, hiện nay các mô hình học máy hoàn toàn bất lực trướ
 
 - Bước 3: Lấy và cập nhật Cookie
   Lazada chống crawl dữ liệu rất mạnh, thế nên phải thay đổi cookies để có       chương trình tiếp tục chạy. Cookie trong code hiện tại chắc chắn đã hết hạn.     Bạn lấy cái mới bằng cách:
+  
    Mở trình duyệt (Chrome/Edge)
    
   Vào trang của một sản phẩm bất kỳ, cuộn xuống phần đánh giá.
@@ -53,9 +55,11 @@ Tuy nhiên, hiện nay các mô hình học máy hoàn toàn bất lực trướ
 - Bước 2: Chuẩn bị dữ liệu
 
 - Bước 3: Chạy các quy trình được tích hợp trong file DS108_ĐA_(1) (3).ipynb
+  
   Data ingestion: Load dữ liệu thô ban đầu
 
   Preprocessing: Chạy các cell code là sạch văn bản, xử lí dữ liệu mất và chuẩn hóa đặt trưng
+  
   Merging: Chạy cell merge để gán nhãn review_score cho bảng sản phẩm
   
   Benchmarking: Chạy mô hình Random Forest để tạo bảng kết quả
